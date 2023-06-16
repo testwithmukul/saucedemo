@@ -2,6 +2,7 @@ package swaglabs.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import swaglabs.util.TestUtil;
 
 import java.io.FileInputStream;
@@ -16,6 +17,7 @@ public class TestBase {
 
     //Declared driver and prop here to use globally
     static WebDriver driver;
+    static ChromeOptions options;
     static Properties prop;
 
     public TestBase(){
@@ -40,9 +42,12 @@ public class TestBase {
         if(browserName.equals("chrome")){
             System.setProperty("webdriver.chrome.driver", "/Users/mukul/Documents/Testing/Automation/drivers/chrome/chromedriver");
             driver = new ChromeDriver();
-        }else {
-            System.out.println("Driver not found!");
+        } else if (browserName.equals("brave")) {
+            System.setProperty("webdriver.chrome.driver", "/Users/mukul/Documents/Testing/Automation/drivers/chrome/chromedriver");
+            options.setBinary("/Users/mukul/Applications/Brave Browser.app");
+            driver = new ChromeDriver(options);
         }
+
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
