@@ -16,16 +16,15 @@ import java.util.Properties;
 public class TestBase {
 
     //Declared driver and prop here to use globally
-    static WebDriver driver;
-    static ChromeOptions options;
-    static Properties prop;
+    public static WebDriver driver;
+    public static Properties prop;
 
     public TestBase(){
 
         //Reading Properties file:
         try {
             prop = new Properties();
-            FileInputStream ip = new FileInputStream(System.getProperty("/Users/mukul/Downloads/saucedemo/src/main/java/swaglabs/config/config.properties");
+            FileInputStream ip = new FileInputStream(System.getProperty("/Users/mukul/IdeaProjects/saucedemo/src/main/java/swaglabs/config/config.properties");
             prop.load(ip);
 
         } catch (FileNotFoundException e) {
@@ -42,10 +41,8 @@ public class TestBase {
         if(browserName.equals("chrome")){
             System.setProperty("webdriver.chrome.driver", "/Users/mukul/Documents/Testing/Automation/drivers/chrome/chromedriver");
             driver = new ChromeDriver();
-        } else if (browserName.equals("brave")) {
-            System.setProperty("webdriver.chrome.driver", "/Users/mukul/Documents/Testing/Automation/drivers/chrome/chromedriver");
-            options.setBinary("/Users/mukul/Applications/Brave Browser.app");
-            driver = new ChromeDriver(options);
+        } else {
+            System.out.println("hahaha");
         }
 
 
@@ -55,5 +52,6 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtil.IMPLICIT_WAIT));
 
         driver.get(prop.getProperty("url"));
+
     }
 }
