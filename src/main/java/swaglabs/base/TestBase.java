@@ -22,7 +22,7 @@ public class TestBase {
         //Reading Properties file:
         try {
             prop = new Properties();
-            FileInputStream ip = new FileInputStream(System.getProperty("/Users/mukul/IdeaProjects/saucedemo/src/main/java/swaglabs/config/config.properties"));
+            FileInputStream ip = new FileInputStream("/Users/mukul/IdeaProjects/saucedemo/src/main/java/swaglabs/config/config.properties");
             prop.load(ip);
 
         } catch (FileNotFoundException e) {
