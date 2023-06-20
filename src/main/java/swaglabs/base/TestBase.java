@@ -2,9 +2,7 @@ package swaglabs.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import swaglabs.util.TestUtil;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,7 +22,7 @@ public class TestBase {
         //Reading Properties file:
         try {
             prop = new Properties();
-            FileInputStream ip = new FileInputStream(System.getProperty("/Users/mukul/IdeaProjects/saucedemo/src/main/java/swaglabs/config/config.properties");
+            FileInputStream ip = new FileInputStream(System.getProperty("/Users/mukul/IdeaProjects/saucedemo/src/main/java/swaglabs/config/config.properties"));
             prop.load(ip);
 
         } catch (FileNotFoundException e) {
@@ -41,8 +39,6 @@ public class TestBase {
         if(browserName.equals("chrome")){
             System.setProperty("webdriver.chrome.driver", "/Users/mukul/Documents/Testing/Automation/drivers/chrome/chromedriver");
             driver = new ChromeDriver();
-        } else {
-            System.out.println("hahaha");
         }
 
 
